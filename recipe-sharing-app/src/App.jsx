@@ -35,10 +35,13 @@
 // export default App
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
+import SearchBar from './components/SearchBar';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 
 function App() {
   return (
@@ -46,7 +49,18 @@ function App() {
       <div className="max-w-xl mx-auto mt-10 shadow-md rounded-lg border p-4">
         <h1 className="text-2xl font-bold text-center mb-4">Recipe Sharing App</h1>
         <Routes>
-          <Route path="/" element={<><RecipeList /><AddRecipeForm /></>} />
+          <Route
+            path="/"
+            element={
+              <>
+                <SearchBar />
+                <RecipeList />
+                <AddRecipeForm />
+                <FavoritesList />
+                <RecommendationsList />
+              </>
+            }
+          />
           <Route path="/recipe/:id" element={<RecipeDetailsWrapper />} />
         </Routes>
       </div>
@@ -54,8 +68,6 @@ function App() {
   );
 }
 
-// Wrapper to read the :id param and pass to RecipeDetails
-import { useParams } from 'react-router-dom';
 const RecipeDetailsWrapper = () => {
   const { id } = useParams();
   const recipeId = parseInt(id, 10);
