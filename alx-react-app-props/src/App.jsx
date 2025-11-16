@@ -56,6 +56,7 @@ function App() {
 
   return (
     <UserContext.Provider value={userData}>
+      {/* ProfilePage wrapped with Context */}
       <ProfilePage />
     </UserContext.Provider>
   );

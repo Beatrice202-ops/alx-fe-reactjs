@@ -1,7 +1,9 @@
 import UserInfo from './UserInfo';
 
 function ProfilePage() {
-  return <UserInfo />;
+  return <UserInfo />;// Wrapper component
 }
 
 export default ProfilePage;
+
+
