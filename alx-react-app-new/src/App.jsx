@@ -7,6 +7,7 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
+import Counter from './components/Counter';
 
 
 
@@ -46,3 +47,24 @@ function App() {
 }
 
 export default App
+
+
+function App() {
+  return (
+    <>
+      <Header />
+      <UserProfile
+        name="Beatrice"
+        age="21"
+        bio="A curious learner who enjoys tech and self-improvement."
+      />
+      <MainContent />
+
+      {/* Counter Component */}
+      <Counter />
+
+      <Footer />
+    </>
+  );
+}
+
